@@ -1,10 +1,25 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url,include
+from rest_framework_nested import routers
 from django.contrib import admin
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'wdp.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+from wdp.views import IndexView
+from authentication.api.views import AccountViewSet, LoginView, LogoutView
 
-    url(r'^admin/', include(admin.site.urls)),
+
+router = routers.SimpleRouter()
+router.register(r'accounts', AccountViewSet)
+
+accounts_router = routers.NestedSimpleRouter(
+    router, r'accounts', lookup='account'
 )
+
+
+
+urlpatterns = patterns(
+    '',
+    #url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^admin/', admin.site.urls),
+    url(r'^api/v1/', include(router.urls)),
+    url(r'^api/v1/', include(accounts_router.urls)),
+
+    )
