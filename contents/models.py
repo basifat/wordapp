@@ -3,7 +3,7 @@ from django.conf import settings
 
 from django.db import models
 from authentication.models import Account
-from orders.models import Order
+#from orders.models import Order
 
 # Create your models here.
 
