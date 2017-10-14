@@ -34,6 +34,7 @@ INSTALLED_APPS = (
     'authentication',
     #'contents',
     'infos',
+    'orders',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
