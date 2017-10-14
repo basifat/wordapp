@@ -1,0 +1,16 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress css %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.css' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/material.css' %}" />
+
+<link rel="shortcut icon" type="image/png" href="local_media/images/favicon.png" /> 
+
+        <link rel="stylesheet" href="static/stylesheets/1140-2.css" type="text/css" media="screen" />
+        <!-- Your styles -->
+        <link rel="stylesheet" href="static/stylesheets/style2.css" type="text/css" media="screen" />
+
+{% endcompress %}

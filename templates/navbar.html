@@ -1,0 +1,25 @@
+<div id="header" role="navigation" ng-controller="NavbarController as vm">
+            <div class="wrap">
+                {% if user.is_authenticated %}
+                <a href="/new"><img src="static/images/logo-white.png" alt="" /></a>
+                <span class="mobilemenu"><span class="mobilemenu-line"></span><span class="mobilemenu-line"></span><span class="mobilemenu-line"></span></span>
+                <ul id="menu">
+               <!--  {% if user.is_authenticated %} {{ user.email }}  <a href="/+{{ user.email }}"> -->
+
+                <li><a href="/orders">{{ user.email }}</a></li>
+                <li><a href="/{{ user.email }}/settings/">Settings</a></li>
+                <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li>
+                {% endif %}
+                {% else %}
+                <a href="index.html" class="logo"><img src="static/images/logo-white.png" alt="" /></a>
+                <span class="mobilemenu"><span class="mobilemenu-line"></span><span class="mobilemenu-line"></span><span class="mobilemenu-line"></span></span>
+                <ul id="menu">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                {% endif %}
+                </ul>
+
+            </div><!-- wrap -->
+            <div class="clearfix"></div>
+        </div><!-- header -->
+        </nav>
