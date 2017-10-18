@@ -1,0 +1,40 @@
+
+<div class="wrap">
+        <div class="row">
+<p> <h2>All orders 
+  <button type="button" onclick ="window.location='/new';" class="btn btn-info btn-sm pull-right">ADD ORDER<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+</button> 
+</h2> </p>
+
+<div >
+
+  
+<table class="table table-striped" >
+    <thead>
+      <tr>
+        <th>Keyword(s)</th>
+        <th>Package</th>
+        <th>Comments</th>
+        <th>Status</th>
+        <th>Download</th>
+        <!-- <th>Payment</th> -->
+      </tr>
+    </thead>
+    <tbody ng-hide="!vm.data.length">
+      <tr ng-repeat="x in vm.data track by $index" >
+            <td>{{ x.info.keywords }}</td>
+            <td>{{ x.info.offer_option }}</td>
+            <td>{{ x.info.comments }}</td>
+            <td>{{ x.info.order_status }}</td>
+            <td><button type="button" class="btn btn-success">Download</button></td>
+
+
+    </tr>
+     </tbody>
+  </table>
+  <li ng-hide="vm.data.length">You have no orders</li>
+</div>
+</div>
+</div>
+
+         

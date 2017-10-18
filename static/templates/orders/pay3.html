@@ -1,0 +1,29 @@
+<!-- $("#submitPayment").on("click", function(){
+	var btn = $ (this).button("loading")
+	setTimeout(function(){
+		btn.button('reset');
+	}, 2500)
+});
+
+})
+ -->
+{% for message in messages %}
+
+{{ message }}
+
+{% endfor %}
+
+<form id="checkout" method="post" action="."> {% csrf_token %}
+  <div id="payment-form"></div>
+  <input id = "submitPayment" type="submit" data-loading-text= "Completing..." class = "btn btn-default" value="Pay Now" autocomplete = "off" />
+</form>
+
+<script src="https://js.braintreegateway.com/js/braintree-2.31.0.min.js"></script>
+<script>
+// We generated a client token for you so you can test out this code
+// immediately. In a production-ready integration, you will need to
+// generate a client token on your server (see section below).
+braintree.setup("{{ client_token }}", "dropin", {
+  container: "payment-form"
+});
+</script>
